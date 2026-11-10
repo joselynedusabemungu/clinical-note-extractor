@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic>=2.6
+openai>=1.30
+openmed>=3.1
+requests
+python-dotenv
+pytest

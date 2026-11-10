@@ -1,0 +1,6 @@
+{"id": "n1", "diagnoses": ["hypertension", "type 2 diabetes"], "medications": [{"name": "metformin", "dose": "500 mg"}], "follow_ups": 1}
+{"id": "n2", "diagnoses": ["headache"], "medications": [], "follow_ups": 1}
+{"id": "n3", "diagnoses": ["hypertension", "chest pain"], "medications": [{"name": "lisinopril", "dose": "10 mg"}], "follow_ups": 1}
+{"id": "n4", "diagnoses": ["diabetes"], "medications": [{"name": "metformin", "dose": "1000 mg"}], "follow_ups": 1}
+{"id": "n5", "diagnoses": [], "medications": [], "follow_ups": 0}
+{"id": "n6", "diagnoses": ["diabetes"], "medications": [{"name": "metformin", "dose": "1000 mg"}], "follow_ups": 1}
