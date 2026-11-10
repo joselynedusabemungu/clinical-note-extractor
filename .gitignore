@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+audit.db
+drug_cache/
+*.log
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
