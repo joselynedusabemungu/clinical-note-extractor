@@ -62,23 +62,25 @@ There is no vector database on purpose: lookups are keyed by drug name, so a dir
 
 ## Evaluation
 
-`docker compose --profile evals run --rm evals` prints:
+`docker compose --profile evals run --rm evals` (or `USE_MOCK=1 python backend/evals/run_evals.py`) prints, in mock mode with no cached FDA labels (verified run, 6 notes, 5/5 tests passing):
 
 ```
 metric                       value
 ----------------------------------
-diag_precision               <x.xxx>
-diag_recall                  <x.xxx>
-med_name_recall              <x.xxx>
-dose_exact                   <x.xxx>
-followup_exact               <x.xxx>
-failed                       <x.xxx>
-escalated                    <x.xxx>
-rag_unsupported_caught       <x.xxx>
-coverage                     <x.xxx>
-unsafe_answered              <x.xxx>
+diag_precision               1.000
+diag_recall                  1.000
+med_name_recall              1.000
+dose_exact                   0.750
+followup_exact               1.000
+failed                       0.000
+escalated                    0.667
+rag_unsupported_caught       0.667
+coverage                     0.333
+unsafe_answered              0.000
 notes evaluated: 6
 ```
+
+Per-note outcome in this run: n1, n3, n4, n6 escalated (`rag_verification_failed`, no label cached); n2 and n5 (no medications) auto-accepted. `dose_exact` is 0.750 because n6's note states 2000 mg while its gold label says 1000 mg; the extractor reported what the note says and the note was escalated, so `unsafe_answered` stays 0.
 
 - `diag_precision` / `diag_recall`: set overlap of diagnoses (lowercased, hyphens as spaces).
 - `med_name_recall`, `dose_exact`: gold medications found, and gold doses matched exactly.
